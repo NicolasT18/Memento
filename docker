@@ -1,0 +1,88 @@
+ ____             _             
+|  _ \  ___   ___| | _____ _ __ 
+| | | |/ _ \ / __| |/ / _ \ '__|
+| |_| | (_) | (__|   <  __/ |   
+|____/ \___/ \___|_|\_\___|_|   
+
+
+     _               _                            __ _                      
+ ___| |_ ___ _ __   / |           ___ ___  _ __  / _(_) __ _  
+/ __| __/ _ \ '_ \  | |  _____   / __/ _ \| '_ \| |_| |/ _` |
+\__ \ ||  __/ |_) | | | |_____| | (_| (_) | | | |  _| | (_| |
+|___/\__\___| .__/  |_|          \___\___/|_| |_|_| |_|\__, |
+            |_|                                        |___/                
+
+
+Use docker without need sudo :
+	add user in the docker group and restart compute
+
+Start docker deamon :
+	systemctl docker
+	
+	
+     _               ____            _                            
+ ___| |_ ___ _ __   |___ \          (_)_ __ ___   __ _  __ _  ___ 
+/ __| __/ _ \ '_ \    __) |  _____  | | '_ ` _ \ / _` |/ _` |/ _ \
+\__ \ ||  __/ |_) |  / __/  |_____| | | | | | | | (_| | (_| |  __/
+|___/\__\___| .__/  |_____|         |_|_| |_| |_|\__,_|\__, |\___|
+            |_|                                        |___/      
+
+
+Write image :
+	vim Dockerfile	#Create a file nammed "Dockerfil" to contains the image instructions
+
+
+Example Dockerfile :
+--------------------------------------------
+FROM php:7.4.4-apache                         #Start from another image
+
+RUN apt-get update && apt-get install -y      #get and install all update on new container
+
+RUN docker-php-ext-install mysqli pdo_mysql   #command from php image for install php extension
+
+COPY . /var/www/html/                         #Copy file in the current folder to the container folder
+--------------------------------------------
+
+
+Create image :
+	docker build . -t <name>   #. for Dockerfil in current folder #-t for name 
+
+Show all images :
+	docker images
+
+Delete image :
+	docker rmi <image>
+
+Download image :
+	docker pull <image>
+
+
+
+     _               _____                          _        _    
+ ___| |_ ___ _ __   |___ /            ___ ___  _ __ | |_ __ _(_)_ __   ___ _ __ 
+/ __| __/ _ \ '_ \    |_ \   _____   / __/ _ \| '_ \| __/ _` | | '_ \ / _ \ '__|
+\__ \ ||  __/ |_) |  ___) | |_____| | (_| (_) | | | | || (_| | | | | |  __/ | 
+|___/\__\___| .__/  |____/           \___\___/|_| |_|\__\__,_|_|_| |_|\___|_|   
+            |_|                    
+             
+
+
+Start container :
+	docker run <image>
+	docker run -it <image> bash   #-it for interactive image #bash for launch bash in the image
+	docker run -d <image>	      #-d detach for run container in background
+	docker run -p 3001:80 <image> #-p for run on a different port to 80
+	docker run -v "$(pwd)":/var/www/html   #sync current folder : to container folder
+
+Show list of container ON :
+	docker ps	
+
+Run command un container :
+	docker exec <container> <command>
+	docker exec -it <container> bash   #enter in bash to the container
+
+Stop container :
+	docker stop <container>
+
+Delete container :
+	docker rm <container>

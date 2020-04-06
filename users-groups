@@ -1,0 +1,41 @@
+ _   _                   
+| | | |___  ___ _ __ ___ 
+| | | / __|/ _ \ '__/ __|
+| |_| \__ \  __/ |  \__ \
+ \___/|___/\___|_|  |___/
+ 
+ Show the users list :
+ 	cat /etc/passwd
+ 
+ Add users :
+ 	useradd <users>
+ 	
+ Delete users :
+ 	userdel -r <users>  #-r for delete user files
+ 	
+ Choose password for users :
+ 	passwd <users>
+ 
+ 
+   ____                           
+ / ___|_ __ ___  _   _ _ __  ___ 
+| |  _| '__/ _ \| | | | '_ \/ __|
+| |_| | | | (_) | |_| | |_) \__ \
+ \____|_|  \___/ \__,_| .__/|___/
+                      |_|        
+             
+Show the groups list : 
+	vim /etc/group
+                      
+Add groups :
+	groupadd <group>
+	
+Delete groups :
+	groupdel <group>
+	
+Add users in groups :
+	gpasswd -a <users> <group>   #-a for addusers
+	usermod -aG <group1>,<group2>,<...>   #-G for Group / -a for keep current groups
+
+Delete users in groups :
+	gpasswd -d <users> <group>   #-d for deleteusers
