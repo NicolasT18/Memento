@@ -1,0 +1,44 @@
+ ____                 _   
+|  _ \ ___  __ _  ___| |_ 
+| |_) / _ \/ _` |/ __| __|
+|  _ <  __/ (_| | (__| |_ 
+|_| \_\___|\__,_|\___|\__|
+
+
+     _               _           _           _        _ _ 
+ ___| |_ ___ _ __   / |         (_)_ __  ___| |_ __ _| | |
+/ __| __/ _ \ '_ \  | |  _____  | | '_ \/ __| __/ _` | | |
+\__ \ ||  __/ |_) | | | |_____| | | | | \__ \ || (_| | | |
+|___/\__\___| .__/  |_|         |_|_| |_|___/\__\__,_|_|_|
+            |_|                                           
+
+Install node.JS and npm :
+	pamac install nodejs	 #npm is install in the same time
+	npm install --global npm #if npm is not install
+
+Check if node and npm is been installed :
+	node -v
+	npm -v
+
+
+1 - choice (with cdn for existing wwebsite) :
+
+
+
+2 - choice (with create-react-app for complete app) :
+
+Install create-react-app :
+	npm install --global create-react-app
+ 
+Install react for a project :
+	create-react-app <project name>
+
+
+             _         _                             
+ _ __   ___ | |_ ___  / |           __ _ _ __  _ __  
+| '_ \ / _ \| __/ _ \ | |  _____   / _` | '_ \| '_ \ 
+| | | | (_) | ||  __/ | | |_____| | (_| | |_) | |_) |
+|_| |_|\___/ \__\___| |_|          \__,_| .__/| .__/ 
+                                        |_|   |_|    
+
+all commande is write in the file "package.json" (replace "react-script" by "npm")
