@@ -75,7 +75,8 @@ Start container :
 	docker run -v "$(pwd)":/var/www/html   #sync current folder : to container folder
 
 Show list of container ON :
-	docker ps
+	docker ps   	#show all container is current running
+	docker ps -a	#show all container
 
 Run command un container :
 	docker exec <container> <command>
