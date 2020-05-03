@@ -18,6 +18,7 @@ Use docker without need sudo :
 
 Start docker deamon :
 	systemctl start docker
+	systemctl enable docker	#for automatically start docker demon when you start the computer
 
 
      _               ____            _
