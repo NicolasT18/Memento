@@ -1,0 +1,105 @@
+for choose technologies, we need to know what we need and wich technologies is good for that
+
+
+Firstly, choose the front :
+
+	For web, we have 4 methods for the front dev :
+
+	Static				
+	->	Basic usage, the file exists already on the server so the server just need to send him to the user (ex: basic html)
+
+	advantage :
+		->	SEO, it's the best way for the seo, it's the way with the more fatest initial loading page and bot like it
+		->	initial loading fast because the front is already laoded
+		->	The most easy for the maintenance
+		->	no need back because we send just file to the user
+	Disavantages :
+		->	The user need to contact the server for display the front, so it's less fluid (less pleasant to use)
+		->	If the user have a bad connection, he will to be blocked on a white screen for a long time
+		->	all component need to be reload, even if it's not necessary (like navbar, footer, ...)
+
+
+	SEO :	+++
+	Initial loading :	+++
+	Loading :	+
+	Maintenance : +++
+	Reload all ui : TRUE
+	Need backend server : FALSE
+
+	-----------------------------------------------------------------------------------------------------------------------------------------------
+
+	(SAP || Single App Page)
+	->	App totally front, the server send an nearly empty html, then the js app when the user read the <script> tag,
+			after the user can read the js app and generate dynamically they pages without need reload (ex: angular, react, vue)
+
+	advantage :
+		->	The user don't need to contact the server for display the front, so it's more fluid after the first loading (more pleasant to use)
+		->	No need to reload all ui, we can change the page without change the navbar, the footer, ...
+		->	no need back because we send just file to the user
+	Disavantages :
+		->	SEO, the server send empty html and js but bot see only empty html
+		->	initial loading is long because the user load empty html file, after load js app and after generate front app with the loading js app
+
+	SEO :	+
+	Initial loading :	+
+	Loading :	+++
+	Maintenance : ++
+	Reload all ui : FALSE
+	Need backend server : FALSE
+
+	---------------------------------------------------------------------------------------------------------------------------------------------
+
+	(SSR || Server Side Rendering)
+	->	similar to SAP but the app is read directly by the server,
+			so the server generate the front part the user ask, so we can choose they element to reload and element to not reload (ex prerender)
+
+	advantage :
+		->	SEO, the server send a generated file to the user, so they bot can read him
+		->	Some element like navbar, footer or other will not reload if we don't want reload it
+	Disavantages :
+		->	The user need to contact the server for display the front, so it's less fluid (less pleasant to use)
+		->	If the user have a bad connection, the front part asked can be long to load
+		->	The maintenance requiert to take care of the front and the back
+		->	Absolutely need to run a server for generate the front file, even if we don't need backend
+
+	SEO :	++
+	Initial loading :	++
+	Loading :	++
+	Maintenance : +
+	Reload all ui : FALSE
+	Need backend server : TRUE
+
+	---------------------------------------------------------------------------------------------------------------------------------------------------
+
+	hybride
+	->	a mix of SAP and SSR. At the initial loading page, the server read app for generate the first page for send to the client,
+			The client receive a not empty page, so he can display the first page and after load the appScript for display they others pages
+
+	advantage :
+		->	SEO, the server send a generated file html file for the initial loading, so they bot can read him
+		->
+	Disavantages :
+		->	The maintenance requiert to take care of the front and the back
+		->	Absolutely need to run a server for generate the front file, even if we don't need backend
+
+	SEO :	++
+	Initial loading :	++
+	Loading :	+++
+	Maintenance : +
+	Reload all ui : FALSE
+	Need backend server : TRUE
+
+
+
+	SOME EXAMPLE :
+	- if you don't need backend but you need a good seo, so the only good choice is static websit (hybride and SRR need back and SAP is bad for SEO)
+	- If you don't need backend and SEO, and the user will probably navigate a lot on your website, so SAP is the best choice (hybride and SRR need back and is less fluid for navigate on website)
+	- If you need backend, seo, best user experience and you are not afraid by the maintenance, and the time of dev so hybride app is the best choice
+
+	- For this memento website, i choose SAP because :
+		->	SEO 							: it's not a websit who need SEO, it's just a personal memento
+		->	Initial loading 	: More importante to have a good experience in app than before first loading
+		->	Loading 					: after first loading, it's useful to have a fastly website without need reload
+		->	Maintenance 			: It's juste a personal front websit, so i don't really care about maintenance
+		->	Reload all ui 		: More pleasant to use when not all ui is reload when i change page
+		->	backend 					: I don't need backed for this website
